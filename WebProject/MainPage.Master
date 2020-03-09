@@ -1,0 +1,60 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainPage.master.cs" Inherits="WebProject.MainPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server" aria-atomic="True">
+    <title>
+      Sce Ice-Cream
+    </title>
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {}
+        #form1 {
+            text-align: center;
+        }
+        </style>
+</head>
+<body style="background: url(picture/background.jpg); width:inherit; height: 316px;">
+    <form id="form1" runat="server">
+            <div>
+
+        <h1> <img src="https://images.cooltext.com/4844294.png" width="697" height="144" alt="Sce Ice-Cream" class="auto-style1" /> </h1>
+         <p style="color:black; font-style: normal; font-weight: 700; background-color: #00CCFF;">         This site is built by Tomer Marzok 203396809, SCE 2017 
+             </p>
+                <p style="color:black; font-style: normal; font-weight: 700; background-color: #000000;">         
+                    <asp:SqlDataSource ID="SDimage" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT imageUrl from userDet where (id=@id)">
+                        <SelectParameters>
+                            <asp:SessionParameter Name="id" SessionField="id" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                    <asp:Label ID="logUserLab" runat="server" Font-Overline="False" Font-Size="XX-Large" Font-Strikeout="False" Font-Underline="False" ForeColor="Red"></asp:Label>
+                    <asp:Label ID="perLb" runat="server" Font-Size="XX-Large" ForeColor="Red"></asp:Label>
+                    <asp:Image ID="profileImage" runat="server" Visible="False" Width="77px" />
+             </p>
+
+            <asp:Panel ID="mainPanel" runat="server">
+                <asp:Button ID="contactButt" runat="server" Text="צור קשר" Width="153px" OnClick="contactButt_Click" CausesValidation="False" />
+                <asp:Button ID="memberButt" runat="server" Text="חברי מועדון" Width="153px" OnClick="memberButt_Click" CausesValidation="False" />
+                <asp:Button ID="icecreamButt" runat="server" Text="תפריט" Width="154px" CausesValidation="False" OnClick="icecreamButt_Click" />
+                <asp:Button ID="aboutButt" runat="server" Text="אודות" Width="152px" OnClick="aboutButt_Click" CausesValidation="False"/>
+            </asp:Panel>
+                   <asp:Button ID="logOut" runat="server" OnClick="Button2_Click" Text="התנתק" Visible="False" Width="148px" />
+                   <asp:Button ID="lastOrderButt" runat="server" OnClick="lastOrderButt_Click" Text="הזמנות אחרונות" Visible="False" Width="94px" />
+                   <asp:Button ID="searchButt" runat="server" Text="חיפוש" Visible="False" Width="96px" OnClick="searchButt_Click" />
+                   <asp:Button ID="mangerButt" runat="server" OnClick="Button1_Click" Text="פעולות מנהל" Width="130px" Visible="False" />
+                   <asp:Button ID="privateDetailsButt" runat="server" Text="עריכת פרטים אישיים" Visible="False" Width="143px" OnClick="privateDetailsButt_Click" />
+                   <hr />
+
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"   >
+                    
+                </asp:ContentPlaceHolder>
+
+            </div>
+
+ 
+</form>
+</body>
+</html>
